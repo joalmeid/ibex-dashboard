@@ -35,7 +35,8 @@
     "react-router": "3.0.0",
     "react-scripts-ts": "^2.6.0",
     "recharts": "^0.21.2",
-    "tslint": "^5.8.0"
+    "tslint": "^5.8.0",
+    "rimraf": "^2.6.2"
   },
   "dependencies": {
     "body-parser": "^1.17.1",
@@ -62,7 +63,8 @@
     "start": "npm-run-all -p css:watch client:start",
     "coverage": "react-scripts-ts test --env=jsdom --coverage --collectCoverageFrom=src/**/*.{ts,tsx} --collectCoverageFrom=!src/**/*.d.ts --collectCoverageFrom=!src/tests/**",
     "lint": "tslint src",
-    "build": "yarn run css:build && react-scripts-ts build && rm -rf ../build/static && cp -rf build ../",
-    "test": "react-scripts-ts test --env=jsdom"
+    "build": "yarn run css:build && react-scripts-ts build && rimraf ../build/static && cp-cli build ../build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "preinstall": "npm install -g cp-cli"
   }
 }
